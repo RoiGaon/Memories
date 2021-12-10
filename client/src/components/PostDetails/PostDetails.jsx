@@ -14,7 +14,7 @@ import useStyles from "./styles";
 // Moment
 import moment from "moment";
 // Action Helpers
-import { getPost, getPostsBySearch } from "../../actions/posts";
+import { getPost } from "../../actions/posts";
 
 const PostDetails = () => {
   const { post, posts, isLoading } = useSelector((state) => state.posts);
@@ -23,18 +23,9 @@ const PostDetails = () => {
   const classes = useStyles();
   const { id } = useParams();
 
-  console.log(posts);
-
   React.useEffect(() => {
     dispatch(getPost(id));
   }, [id, dispatch]);
-
-  React.useEffect(() => {
-    if (post)
-      dispatch(
-        getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
-      );
-  }, [post, dispatch]);
 
   if (!post) return null;
 
