@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://memories1-mern-project.herokuapp.com/",
+  baseURL: "https://memories-server-ap.herokuapp.com/",
 });
 
 API.interceptors.request.use((req) => {
