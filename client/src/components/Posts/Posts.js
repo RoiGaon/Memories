@@ -9,6 +9,7 @@ import Post from "./Post/Post";
 
 const Posts = ({ setCurrentId }) => {
   const { posts, isLoading } = useSelector((state) => state.posts);
+  console.log({ posts });
   const classes = useStyles();
 
   if (!posts.length && !isLoading) return "No posts";
